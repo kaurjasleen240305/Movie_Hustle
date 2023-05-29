@@ -9,6 +9,18 @@
 
 </head>
 <body>
+    <div id="play">
+        <div class="two">
+        <h3>MOVIE HUSTLE</h3>
+        <button class="playbtn" onclick="how()" >HOW TO PLAY?</button>
+        </div>
+        <p id="how" class="none">
+            So here is the movie title in which you got only vowels of the title and you got chances equal to the number of consonants in the title to guess the correct movie.<br>
+            In the checkbox if you enter any consonant if that consonant is there in the title name it will be filled in the title name automatically as well as in the correct consonants space to let you know which consonants you already have filled and if you
+            enter wrong consonant it will fill that consonant in the wrong space and you will lose one chance.
+            
+        </p>
+    </div>
     <div id="one">
       
     </div>
@@ -194,7 +206,12 @@ fetch(url,options).then((response)=>{
             fet(q);
             
         }
-        
+        function how(){
+            console.log('hi')
+            document.getElementById('how').classList.toggle('none');
+            console.log(document.getElementById('how'));
+
+        }
 
      </script>
 </body>

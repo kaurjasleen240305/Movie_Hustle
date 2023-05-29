@@ -8,6 +8,37 @@
 body{
     font-family: 'Exo', sans-serif;
 }
+#play{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    background-color: #000;
+    color:white;
+
+}
+#play p,.playbtn{
+    margin:10px;
+}
+.two{
+    display:flex;
+     margin-top:5px;
+}
+.two h3{
+    margin-top:10px;
+    margin-left:35%;
+}
+.playbtn{
+    margin-left: 32%;
+     border-radius:5px;
+     padding:10px;
+     font-weight:bold;
+     background-color: darkgrey;
+}
+.none{
+    display:none;
+    color:white;
+}
+
 #gh{
     display:flex;
     flex-direction:column;
