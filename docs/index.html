@@ -14,13 +14,14 @@
         <h3>MOVIE HUSTLE</h3>
         <button class="playbtn" onclick="how()" >HOW TO PLAY?</button>
         </div>
-        <p id="how" class="none">
-            So here is the movie title in which you got only vowels of the title and you got chances equal to the number of consonants in the title to guess the correct movie.<br>
-            In the checkbox if you enter any consonant if that consonant is there in the title name it will be filled in the title name automatically as well as in the correct consonants space to let you know which consonants you already have filled and if you
-            enter wrong consonant it will fill that consonant in the wrong space and you will lose one chance.
-            
-        </p>
+    
     </div>
+    <p id="how" class="none">
+        So here is the movie title in which you got only vowels of the title and you got chances equal to the number of consonants in the title to guess the correct movie.<br>
+        In the checkbox if you enter any consonant if that consonant is there in the title name it will be filled in the title name automatically as well as in the correct consonants space to let you know which consonants you already have filled and if you
+        enter wrong consonant it will fill that consonant in the wrong space and you will lose one chance.
+        
+    </p>
     <div id="one">
       
     </div>
@@ -43,18 +44,17 @@
     <div id="gh">
        <p id="hintext">ENTER ANY CONSONANT</p>
        <p id="chances"></p>
+
        <form id="hint" onsubmit="event.preventDefault()">
             <input type="text"  name="index">
             <button type="submit" id="subbtn" onclick="hint()">GO</button>
        </form>
        <p id="invalid" class="none">Enter only a single consonant or a digit!!</p>
     </div>
-    <div id="complete">
     <form id="complete" onsubmit="event.preventDefault()">
             <input class="movie" type="text" name="movie">
             <button type="submit" id="moviebtn" onclick="validateForm()">GO</button>
     </form>
-    </div>
      <script>
                 const url = 'https://abir82-bollywood-recommendations.p.rapidapi.com/?year=2018&genre=Comedy';
         const options = {
