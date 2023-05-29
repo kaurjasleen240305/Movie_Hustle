@@ -238,7 +238,10 @@ body{
     }
 
 }
-
+#complete{
+    margin-top:10%;
+    margin-left:10%;
+}
 body{
     background-color: #4e54c8;
 }
@@ -291,6 +294,10 @@ input{
     display:flex;
     margin-top: 200px;
     margin-left:100px;
+    margin-right:100px;
+}
+#invalid{
+    color:red;
 }
 #what{
     display:flex;
@@ -317,4 +324,48 @@ input{
 }
 #gamewin,#gameloss{
     display:none;
+}
+@media screen and (max-width: 838px) {
+    .letter{
+        width:30px;
+        height:30px;
+    }
+    .space{
+        width:30px;
+        height:30px;
+    }
+    #one{
+        margin-left:5%;
+        margin-right:5%;
+    }
+}
+@media screen and (max-width: 994px) {
+    #gh{
+        width:30%;
+    }
+}
+@media screen and (max-width: 628px){
+    #gh{
+        width:40%;
+        margin-left:30%;
+        margin-right:10%;
+    }
+    #one{
+        margin-top:30%;
+    }
+    .letter{
+        width:20px;
+        height:20px;
+    }
+    .space{
+        width:20px;
+        height:20px;
+    }
+}
+@media screen and (max-width: 470px){
+    #gh{
+        width:55%;
+        margin-left:20%;
+        margin-right:10%;
+    }
 }

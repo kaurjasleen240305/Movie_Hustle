@@ -24,7 +24,7 @@
     <div id="one">
       
     </div>
-    <div id="gameloss">SORRY!!YOU GUESSED THE WRONG MOVIE...</div>
+    <div id="gameloss" >SORRY!!YOU GUESSED THE WRONG MOVIE...</div>
     <div id="guess"><button type="button" id="nextbtn" onclick="next()">GUESS NEXT MOVIE</button></div>
     <div class="score">
         <p>Score:</p>
@@ -47,6 +47,7 @@
             <input type="text"  name="index">
             <button type="submit" id="subbtn" onclick="hint()">GO</button>
        </form>
+       <p id="invalid" class="none">Enter only a single consonant or a digit!!</p>
     </div>
     <div id="complete">
     <form id="complete" onsubmit="event.preventDefault()">
@@ -136,11 +137,17 @@ fetch(url,options).then((response)=>{
                 let movie=(document.forms['complete']['movie'].value).toUpperCase;
                 if(movie==((l.data[q].Title).toUpperCase)){
                     document.getElementById('nextbtn').style.display='block';
+                    score=Number(document.getElementById('point').innerHTML);
+                    score+=1;
+                    document.getElementById('point').innerHTML=String(score);
                 }
             }
             function hint(){
                 let a=['A','E','I','O','U'];
                let conso=document.forms['hint']['index'].value;
+            console.log(conso.search(/^([a-z]{1}|[A-Z]{1}|[0-9]{1})$/g));
+            if(conso.search(/^([a-z]{1}|[A-Z]{1}|[0-9]{1})$/g)>=0){
+                document.getElementById('invalid').style.display='none';
                conso=conso.toUpperCase();
                const str = l.data[q].Title;
                if(hiden.includes(conso)){
@@ -188,6 +195,10 @@ fetch(url,options).then((response)=>{
 
                 document.getElementById('complete').remove();
             }
+        }
+        else{
+            document.getElementById('invalid').style.display='block';
+        }
              }
         function next(){
             let menu = document.getElementById('one');
