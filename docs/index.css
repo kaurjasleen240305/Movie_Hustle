@@ -20,6 +20,7 @@ body{
     background-color: #000;
     z-index:-1;
     color:white;
+    padding: 10px;
 }
 #play p,.playbtn{
     margin:10px;
@@ -219,7 +220,7 @@ body{
 #nextbtn{
     display:none;
     margin-top:20px;
-    background-color: rgb(220, 0, 15);
+    background-color: rgb(37, 220, 0);
     background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
     box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
     color:white;
@@ -242,11 +243,29 @@ body{
 
 }
 #complete{
-    margin-left:350px;
-    margin-top:50px;
+    margin-left:25%;
+    margin-top:25px;
 }
 body{
     background-color: #4e54c8;
+}
+#how p{
+    width:90%;
+    padding:5px;
+}
+.movie{
+    padding:10px;
+    font-size: 1.5em;
+    border-radius: 5px;
+}
+#moviebtn{
+    padding: 10px;
+    font-size: 1.5em;
+    background-color: greenyellow;
+}
+#complete label{
+    font-size: larger;
+    font-weight: bold;
 }
 #subbtn{
     background-color: rgb(220, 0, 15);
