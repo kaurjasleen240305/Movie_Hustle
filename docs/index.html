@@ -172,6 +172,22 @@ fetch(url,options).then((response)=>{
                         
                     })
             }
+            document.addEventListener('keypress',adding);
+            function adding(e){
+                let key=(e.key).toUpperCase();
+                let array=document.getElementsByClassName('subbtn');
+                let display=document.getElementById('consonant').style.display;
+                console.log(display);
+                if(display!='none'){
+                for(let i=0;i<array.length;i++){
+                    if(array[i].innerHTML==key){
+                        hint(array[i]);
+                        break;
+                    }
+                }
+               }
+            }
+
             function validateForm(){
                 let movie=(document.forms['complete']['movie'].value).toUpperCase;
                 if(movie==((l.data[q].Title).toUpperCase)){
@@ -225,7 +241,7 @@ fetch(url,options).then((response)=>{
             }
             console.log(hino)
             if (hino==b.length){
-                document.getElementById('result').innerHTML='CONGRATS!! YOU GUESSED THE CORRECT MOVIE TITLE';
+              //w  document.getElementById('result').innerHTML='CONGRATS!! YOU GUESSED THE CORRECT MOVIE TITLE';
                // for(let ll=0;ll<(document.getElementsByClassName('letter').length);ll++){
                //     document.getElementsByClassName('letter')[i];
                // }
@@ -242,6 +258,7 @@ fetch(url,options).then((response)=>{
                 document.getElementById('gameloss').innerHTML=da;
                 document.getElementById('gameloss').style.display='block';
                 document.getElementById('complete').remove();
+                
             }
         }
         else{
