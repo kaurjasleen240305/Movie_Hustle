@@ -24,13 +24,13 @@
     <div id="one">
       
     </div>
-    <div id="gameloss" >SORRY!!YOU GUESSED THE WRONG MOVIE...</div>
+    <div id="gameloss" ></div>
     <div id="guess"><button type="button" id="nextbtn" onclick="next()">GUESS NEXT MOVIE</button></div>
     <div class="score">
         <p>Score:</p>
         <p id="point">0</p>
     </div>
-    <div id="what">
+    <!--<div id="what">
         <div id="ctext">
              <p>CORRECT CONSONANTS</p>
              <div id="correct"></div>
@@ -39,22 +39,60 @@
              <p>WRONG CONSONANTS</p>
              <div id="wrong"></div>
         </div>
-    </div>
+    </div>-->
+    <div id="chances"></div>
     <div id="gh">
-       <p id="hintext">ENTER ANY CONSONANT</p>
-       <p id="chances"></p>
 
-       <form id="hint" onsubmit="event.preventDefault()">
-            <input type="text"  name="index">
+     <!--  <form id="hint" onsubmit="event.preventDefault()">
+          <input type="text"  name="index">
             <button type="submit" id="subbtn" onclick="hint()">GO</button>
-       </form>
-       <p id="invalid" class="none">Enter only a single consonant or a digit!!</p>
+       </form>-->
+       <div id="consonant">
+       <button type="submit" class="subbtn" onclick="hint(this)">A</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">B</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">C</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">D</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">E</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">F</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">G</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">H</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">I</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">J</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">K</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">L</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">M</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">N</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">O</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">P</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">Q</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">R</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">S</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">T</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">U</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">V</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">W</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">X</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">Y</button>
+       <button type="submit" class="subbtn" onclick="hint(this)">Z</button>
+       </div>
+       <div id="number">
+        <button type="submit" class="subbtn" onclick="hint(this)">0</button>
+        <button type="submit" class="subbtn" onclick="hint(this)">1</button>
+        <button type="submit" class="subbtn" onclick="hint(this)">2</button>
+        <button type="submit" class="subbtn" onclick="hint(this)">3</button>
+        <button type="submit" class="subbtn" onclick="hint(this)">4</button>
+        <button type="submit" class="subbtn" onclick="hint(this)">5</button>
+        <button type="submit" class="subbtn" onclick="hint(this)">6</button>
+        <button type="submit" class="subbtn" onclick="hint(this)">7</button>
+        <button type="submit" class="subbtn" onclick="hint(this)">8</button>
+        <button type="submit" class="subbtn" onclick="hint(this)">9</button>
+       </div>
     </div>
-    <form id="complete" onsubmit="event.preventDefault()">
+   <!-- <form id="complete" onsubmit="event.preventDefault()">
             <label>ENTER FULL MOVIE:</label>
             <input class="movie" type="text" name="movie">
             <button type="submit" id="moviebtn" onclick="validateForm()">GO</button>
-    </form>
+    </form>-->
      <script>
                 const url = 'https://abir82-bollywood-recommendations.p.rapidapi.com/?year=2018&genre=Comedy';
         const options = {
@@ -129,7 +167,7 @@ fetch(url,options).then((response)=>{
                             }
                             document.getElementById('one').appendChild(done);
                          }
-                         document.getElementById('chances').innerHTML='You only have '+b.length+' chances' ;
+                        document.getElementById('chances').innerHTML='You only have '+b.length+' chances' ;
                         
                     })
             }
@@ -142,23 +180,25 @@ fetch(url,options).then((response)=>{
                     document.getElementById('point').innerHTML=String(score);
                 }
             }
-            function hint(){
+            function hint(value){
                 let a=['A','E','I','O','U'];
-               let conso=document.forms['hint']['index'].value;
+               let conso=value.innerHTML;
+               console.log(conso);
             console.log(conso.search(/^([a-z]{1}|[A-Z]{1}|[0-9]{1})$/g));
             if(conso.search(/^([a-z]{1}|[A-Z]{1}|[0-9]{1})$/g)>=0){
-                document.getElementById('invalid').style.display='none';
+               // document.getElementById('invalid').style.display='none';
                conso=conso.toUpperCase();
                const str = l.data[q].Title;
                if(hiden.includes(conso)){
                 h+=1;
                 chances-=1
+                value.style.backgroundColor='#63FF20';
                  const indexes = [];
-                 let x=document.createElement('span');
+                 //let x=document.createElement('span');
                  document.getElementById('chances').innerHTML='You only have '+(b.length-h)+' chances';
-                 const f=document.createTextNode(conso);
-                 x.appendChild(f);
-                 document.getElementById('correct').appendChild(x);
+                 //const f=document.createTextNode(conso);
+                 //x.appendChild(f);
+                 //document.getElementById('correct').appendChild(x);
                 for (let index = 0; index < str.length; index++) {
                     if (((str[index].toUpperCase() )== conso) ) {
                        indexes.push(index);
@@ -175,44 +215,56 @@ fetch(url,options).then((response)=>{
             else if((!(a.includes(conso))) && (!(hiden.includes(conso)))){
                 h+=1;
                 let x=document.createElement('span');
+                value.style.backgroundColor='#E3242B';
                 document.getElementById('chances').innerHTML='You only have '+(b.length-h)+' chances';
-                 const f=document.createTextNode(conso);
-                 x.appendChild(f);
-                 console.log(x);
-                 document.getElementById('wrong').appendChild(x);
+                // const f=document.createTextNode(conso);
+                // x.appendChild(f);
+                // console.log(x);
+                // document.getElementById('wrong').appendChild(x);
             }
             console.log(hino)
             if (hino==b.length){
                 document.getElementById('result').innerHTML='CONGRATS!! YOU GUESSED THE CORRECT MOVIE TITLE';
+               // for(let ll=0;ll<(document.getElementsByClassName('letter').length);ll++){
+               //     document.getElementsByClassName('letter')[i];
+               // }
                 document.getElementById('nextbtn').style.display='block';
                 let point=document.getElementById('point').innerHTML;
                 point=String(Number(point)+1);
                 document.getElementById('point').innerHTML=point;
             }
             else if((hino!=b.length) && (h==b.length)){
-                document.getElementById('hint').remove();
+                document.getElementById('consonant').style.display='none';
+                let da="WRONG GUESS!! RIGHT NAME IS "+(str);
+                document.getElementById('nextbtn').style.display='block';
+                document.getElementById('gameloss').innerHTML=da;
                 document.getElementById('gameloss').style.display='block';
-
                 document.getElementById('complete').remove();
             }
         }
         else{
             document.getElementById('invalid').style.display='block';
-        }
+        }    
              }
         function next(){
             let menu = document.getElementById('one');
+            let arr=document.getElementsByClassName('subbtn');
+            for(let i=0;i<arr.length;i++){
+                arr[i].style.backgroundColor='grey';
+            }
             while (menu.firstChild) {
                menu.removeChild(menu.firstChild);
             }
-            let correct=document.getElementById('correct');
-            while(correct.firstChild){
-                correct.removeChild(correct.firstChild);
-            }
-            let wrong=document.getElementById('wrong');
-            while(wrong.firstChild){
-                wrong.removeChild(wrong.firstChild);
-            }
+            document.getElementById('consonant').style.display='block';
+            //let correct=document.getElementById('correct');
+            //while(correct.firstChild){
+            //    correct.removeChild(correct.firstChild);
+           // }
+            //let wrong=document.getElementById('wrong');
+            //while(wrong.firstChild){
+            //    wrong.removeChild(wrong.firstChild);
+            //}
+          //  document.getElementsByClassName
             q+=1;
             fet(q);
             
@@ -223,7 +275,7 @@ fetch(url,options).then((response)=>{
             console.log(document.getElementById('how'));
 
         }
-
+        
      </script>
 </body>
 </html>
