@@ -14,7 +14,6 @@
         <h3>MOVIE HUSTLE</h3>
         <button class="playbtn" onclick="how()" >HOW TO PLAY?</button>
         </div>
-    
     </div>
     
        <p id="how" class="none">So here is the movie title in which you got only vowels of the title and you got chances equal to the number of consonants in the title to guess the correct movie.<br>
@@ -24,7 +23,9 @@
     <div id="one">
       
     </div>
-    <div id="gameloss" ></div>
+    <div id="new">
+    <p id="gameloss" ></p>
+    </div>
     <div id="guess"><button type="button" id="nextbtn" onclick="next()">GUESS NEXT MOVIE</button></div>
     <div class="score">
         <p>Score:</p>
@@ -191,7 +192,7 @@ fetch(url,options).then((response)=>{
                const str = l.data[q].Title;
                if(hiden.includes(conso)){
                 h+=1;
-                chances-=1
+                chances-=1;
                 value.style.backgroundColor='#63FF20';
                  const indexes = [];
                  //let x=document.createElement('span');
@@ -235,6 +236,7 @@ fetch(url,options).then((response)=>{
             }
             else if((hino!=b.length) && (h==b.length)){
                 document.getElementById('consonant').style.display='none';
+                document.getElementById('number').style.display='none';
                 let da="WRONG GUESS!! RIGHT NAME IS "+(str);
                 document.getElementById('nextbtn').style.display='block';
                 document.getElementById('gameloss').innerHTML=da;
@@ -256,6 +258,7 @@ fetch(url,options).then((response)=>{
                menu.removeChild(menu.firstChild);
             }
             document.getElementById('consonant').style.display='block';
+            document.getElementById('number').style.display='block';
             //let correct=document.getElementById('correct');
             //while(correct.firstChild){
             //    correct.removeChild(correct.firstChild);

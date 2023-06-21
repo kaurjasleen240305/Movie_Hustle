@@ -406,3 +406,16 @@ input{
     justify-content: center;
     padding:20px;
 }
+#gameloss{
+    display: block;
+    background-color:rgb(161, 20, 29);
+    color:white;
+    margin:20px;
+    padding: 10px;
+    font-weight: bolder;
+    font-size:larger
+}
+#new{
+    display:flex;
+    justify-content: center;
+}
