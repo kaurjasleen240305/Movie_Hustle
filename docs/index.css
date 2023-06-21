@@ -398,3 +398,11 @@ input{
     flex-direction:row;
     justify-content: space-between;
 }
+#chances{
+    display: flex;
+    font-size:larger;
+    font-weight: bolder;
+    color:antiquewhite;
+    justify-content: center;
+    padding:20px;
+}
