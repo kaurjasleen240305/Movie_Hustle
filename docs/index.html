@@ -31,70 +31,38 @@
         <p>Score:</p>
         <p id="point">0</p>
     </div>
-    <!--<div id="what">
-        <div id="ctext">
-             <p>CORRECT CONSONANTS</p>
-             <div id="correct"></div>
-        </div>
-        <div id="wtext">
-             <p>WRONG CONSONANTS</p>
-             <div id="wrong"></div>
-        </div>
-    </div>-->
+   
     <div id="chances"></div>
     <div id="gh">
-
-     <!--  <form id="hint" onsubmit="event.preventDefault()">
-          <input type="text"  name="index">
-            <button type="submit" id="subbtn" onclick="hint()">GO</button>
-       </form>-->
        <div id="consonant">
-       <button type="submit" class="subbtn" onclick="hint(this)">A</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">B</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">C</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">D</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">E</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">F</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">G</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">H</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">I</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">J</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">K</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">L</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">M</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">N</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">O</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">P</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">Q</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">R</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">S</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">T</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">U</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">V</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">W</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">X</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">Y</button>
-       <button type="submit" class="subbtn" onclick="hint(this)">Z</button>
+         
        </div>
        <div id="number">
-        <button type="submit" class="subbtn" onclick="hint(this)">0</button>
-        <button type="submit" class="subbtn" onclick="hint(this)">1</button>
-        <button type="submit" class="subbtn" onclick="hint(this)">2</button>
-        <button type="submit" class="subbtn" onclick="hint(this)">3</button>
-        <button type="submit" class="subbtn" onclick="hint(this)">4</button>
-        <button type="submit" class="subbtn" onclick="hint(this)">5</button>
-        <button type="submit" class="subbtn" onclick="hint(this)">6</button>
-        <button type="submit" class="subbtn" onclick="hint(this)">7</button>
-        <button type="submit" class="subbtn" onclick="hint(this)">8</button>
-        <button type="submit" class="subbtn" onclick="hint(this)">9</button>
+        
        </div>
     </div>
-   <!-- <form id="complete" onsubmit="event.preventDefault()">
-            <label>ENTER FULL MOVIE:</label>
-            <input class="movie" type="text" name="movie">
-            <button type="submit" id="moviebtn" onclick="validateForm()">GO</button>
-    </form>-->
+  
      <script>
+        let consonant=document.getElementById('consonant');
+        let number=document.getElementById('number');
+        for(let i=65;i<=90;i++){
+             var node=document.createElement('button');
+             node.type='submit';
+             node.classList.add('subbtn');
+             textnode=String.fromCharCode(i);
+             node.append(textnode);
+             node.onclick=function() {hint(this);};
+             consonant.appendChild(node);
+        }
+        for(let i=48;i<=57;i++){
+             var node=document.createElement('button');
+             node.type='submit';
+             node.classList.add('subbtn');
+             textnode=String.fromCharCode(i);
+             node.append(textnode);
+             node.onclick=function() {hint(this);};
+             number.appendChild(node);
+        }
                 const url = 'https://abir82-bollywood-recommendations.p.rapidapi.com/?year=2018&genre=Comedy';
         const options = {
 	        method: 'GET',
